@@ -57,23 +57,23 @@
 		<a href="/feel">旅行の感じ</a>
 		<a href="/blog_edit">編集</a>
     </div>
-	<form>
+	<form action="/blog_edit" method="post">
 	<h2 class="profile">編集</h2>
 	<div class="mb-3">
-    <label for="exampleInput1" class="form-label">标题</label>
-    <input type="email" class="form-control" id="exampleInput1">
+    <label for="title" class="form-label">标题</label>
+    <input type="email" class="form-control" id="title" name="title">
     </div>
 	<div class="mb-3">
-    <label for="exampleInput2" class="form-label">内容简介</label>
-    <input type="email" class="form-control" id="exampleInput2">
+    <label for="content" class="form-label">内容简介</label>
+    <input type="email" class="form-control" id="content" name="content">
     </div>
 	<div class="mb-3">
-    <label for="exampleInput3" class="form-label">编辑内容</label>
-    <input type="email" class="form-control" id="exampleInput3">
+    <label for="edit" class="form-label">编辑内容</label>
+    <input type="email" class="form-control" id="edit" name="edit">
     </div>
 	<div class="mb-3">
-    <label for="exampleInput3" class="form-label">上传图片</label>
-    <button type="submit" class="btn">Image file...</button><p>Upload an image from here</p>
+    <label for="image" class="form-label">上传图片</label>
+    <button type="submit" class="btn" name="image">Image file...</button><p>Upload an image from here</p>
     </div>
     </form>
   <body>
