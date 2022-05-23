@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="https://thymeleaf.org">
   <head>
     <meta chartset="UTF-8">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico">
@@ -61,20 +61,13 @@
 	<h2 class="profile">編集</h2>
 	<div class="mb-3">
     <label for="title" class="form-label">标题</label>
-    <input type="email" class="form-control" id="title" name="title">
+    <input type="email" class="form-control" id="title" name="title"　placeholder='add a title'>
     </div>
 	<div class="mb-3">
     <label for="content" class="form-label">内容简介</label>
-    <input type="email" class="form-control" id="content" name="content">
+    <input type="email" class="form-control" id="content" name="content"　placeholder='add content'>
     </div>
-	<div class="mb-3">
-    <label for="edit" class="form-label">编辑内容</label>
-    <input type="email" class="form-control" id="edit" name="edit">
-    </div>
-	<div class="mb-3">
-    <label for="image" class="form-label">上传图片</label>
-    <button type="submit" class="btn" name="image">Image file...</button><p>Upload an image from here</p>
-    </div>
+	<input type="submit" value="Submit"> 
     </form>
   <body>
 </html>
