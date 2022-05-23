@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 public class Blog_edit {
+	
 	@Autowired
 	private BlogInfoRepository blogInfoRepository;
 	
