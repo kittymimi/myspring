@@ -27,15 +27,15 @@ public class Blog_edit {
 		mv.addObject("id", id);
 		BlogInfo blogInfo = blogInfoRepository.findByID(id);	
 		if (id.equals(blogInfo.getId())) {
-			mv.setViewName("blog");
+			mv.setViewName("blog_edit");
 		} else {
-			mv.setViewName("fail");
+			mv.setViewName("fail_edit");
 		}
 		return mv;
 	}
 
-	@GetMapping("/blog")
+	@GetMapping("/blog_edit")
 	public String getSuccessView() {
-		return "blog";
+		return "blog_edit";
 	}
 }
