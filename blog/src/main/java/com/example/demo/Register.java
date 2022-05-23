@@ -30,7 +30,7 @@ public class Register {
 			mv.setViewName("fail_register");		
 		} else {
 			UserInfo userInfo = UserInfo.builder()//
-					.name(username)//
+					.username(username)//
 					.password(password)//
 					.build();
 			userInfoRepository.save(userInfo);

@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.example.demo.BlogInfo;
 import com.example.demo.UserInfo;
 import com.example.demo.BlogService;
@@ -41,7 +40,7 @@ public class Blog_edit {
 	
 	@PostMapping("/editor")
 	public ModelAndView addBlog(@RequestParam("title") String title, @RequestParam("content") String content, @RequestParam("username") String username) {
-		User user = userService.findByUsername(username);
+		UserInfo user = userService.findByUsername(username);
 		blogService.addBlog(title, content, user);
 		ModelAndView mv = new ModelAndView("redirect:/blog");
 		mv.addObject("user_id", user.getId());
