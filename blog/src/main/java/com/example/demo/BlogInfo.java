@@ -21,7 +21,8 @@ public class BlogInfo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long blogId;
+	private String username;
 	private String title;
 	private String content;
-	
+	private String comment;
 }

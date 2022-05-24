@@ -32,11 +32,13 @@
     padding:0 30px;
   }
   form{
-    width:300px;
-	height:500px;
+    width:600px;
+	height:600px;
     margin-top:20px;
     margin-left:180px;
 	margin-bottom:20px;
+	background-color:#eeeeee;
+	padding:10px 30px 10px 30px;
   } 
   button.btn{
     width:120px;
@@ -55,19 +57,25 @@
 		<a href="/blog">観光</a>
 		<a href="/blog">写真</a>
 		<a href="/feel">旅行の感じ</a>
-		<a href="/blog_edit">編集</a>
+		<a href="/editor">編集</a>
     </div>
 	<form action="/editor" method="post">
 	<h2 class="profile">編集</h2>
+	<div class="mb-3">
+    <label for="username" class="form-label">用户名</label>
+    <input type="text" class="form-control" id="username" name="username">
+    </div>
 	<div class="mb-3">
     <label for="title" class="form-label">标题</label>
     <input type="text" class="form-control" id="title" name="title">
     </div>
 	<div class="mb-3">
     <label for="content" class="form-label">内容简介</label>
-    <input type="text" class="form-control" id="content" name="content">
+	<textarea rows="15" cols="92" class="form-control" id="content" name="content"></textarea>
     </div>
     <input type="submit" id="submit" value="Submit">
+	<input type="submit" id="update" class="form-label" th:href="@{/editor(username=${username})}" value="更新">
+	</form>
     </form>
   <body>
 </html>

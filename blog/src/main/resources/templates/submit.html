@@ -31,10 +31,23 @@
   a{ 
     padding:0 30px;
   }
-  form{
-    width:300px;
-	height:500px;
-    margin-top:20px;
+  form.form1{
+    width:600px;
+	height:600px;
+	margin-top:20px;
+	margin-left:180px;
+	margin-bottom:20px;
+	background-color:#eeeeee;
+	padding:10px 30px 10px 30px;
+  } 
+  input.comment{
+    width:50px;	
+  }
+  form.form2{
+    margin-left:180px;
+	margin-bottom:20px;
+  } 
+  form.form3{
     margin-left:180px;
 	margin-bottom:20px;
   } 
@@ -43,6 +56,9 @@
 	height:60px;
 	background-color:#ADD8E6;
   } 
+  input{
+    width:70px;
+  }
   </style>
   </head>
   <body>
@@ -55,9 +71,13 @@
 		<a href="/blog">観光</a>
 		<a href="/blog">写真</a>
 		<a href="/feel">旅行の感じ</a>
-		<a href="/blog_edit">編集</a>
+		<a href="/editor">編集</a>
     </div>
-	<form>
+	<form class="form1">
+	<div class="mb-3">
+    <label for="username" class="form-label">用户名</label>
+    <p th:text="*{username}"></p>
+    </div>
 	<div class="mb-3">
     <label for="title" class="form-label">标题</label>
     <p th:text="*{title}"></p>
@@ -66,6 +86,19 @@
     <label for="content" class="form-label">内容简介</label>
     <p th:text="*{content}"></p>
     </div>
+    </form>
+    <form action="/delete" method="get" class="form2">
+	<div class="mb-3">
+    <input type="text" name="blogId">
+	<input type="submit" id="delete" class="form-label" th:href="@{/editor(blogId=${blogId})}" value="删除">
+	</div>
+	</form>
+	<form action="/comment" method="post" class="form3">
+	<div class="mb-3">
+    <label for="comment" class="form-label">评论</label>
+	<textarea rows="15" cols="52" class="form-control" id="comment" name="comment"></textarea>
+    </div>
+    <input type="submit" class="comment" value="提交评论">
     </form>
   <body>
 </html>

@@ -23,8 +23,8 @@ public class Register {
 	@PostMapping("/register")
 	public ModelAndView register(//
 			@RequestParam("username") String username, //
-			@RequestParam("password1") String password, //
-			@RequestParam("password2") String passwordAgain, //
+			@RequestParam("password") String password, //
+			@RequestParam("passwordAgain") String passwordAgain, //
 			ModelAndView mv) {
 		if (!password.equals(passwordAgain)) {
 			mv.setViewName("fail_register");		
@@ -32,6 +32,7 @@ public class Register {
 			UserInfo userInfo = UserInfo.builder()//
 					.username(username)//
 					.password(password)//
+					.password_again(passwordAgain)//
 					.build();
 			userInfoRepository.save(userInfo);
 			mv.addObject("username", username);
