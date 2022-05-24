@@ -20,8 +20,8 @@ public class BlogInfo {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private Long blogId;
 	private String title;
-	private String contents;
+	private String content;
 	
 }

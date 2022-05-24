@@ -18,35 +18,25 @@ public class Blog {
 	
 	@Autowired
 	private BlogInfoRepository blogInfoRepository;
-	@Autowired
-	private UserInfoRepository userInfoRepository;
 	
 	@GetMapping("/editor")
-	public ModelAndView blog(@RequestParam("username") String username, Map<String, Object> map, ModelAndView mv) {
-		map.put("username", username);
-		mv.addObject("blogList", blogInfoRepository.findAll());
-		mv.setViewName("editor");
-		return mv; 
-	}
-  	@PostMapping("/submit")
-   	public ModelAndView submit(//
-   			@RequestParam("username") String username, //
-   			@RequestParam("title") String title, //
-   			@RequestParam("contents") String contents, //
-			ModelAndView mv) {
-  		mv.addObject("username", username);
-  		BlogInfo blogInfo = BlogInfo.builder()//
-  				.title(title)//
-				.contents(contents)//
-				.build();
-  		blogInfoRepository.save(blogInfo);
-		mv.addObject("username", username);
-		mv.addObject("title", title);
-		mv.addObject("contents", contents);
-		mv.setViewName("submit");
-		
-		return mv;
+	public String getEditorView() {
+		return "editor";
 	}
 	
-
+  	@PostMapping("/editor")
+   	public ModelAndView submit(//
+   			@RequestParam("title") String title, //
+   			@RequestParam("content") String content, //
+			ModelAndView mv) {
+  		BlogInfo blogInfo = BlogInfo.builder()//
+  				.title(title)//
+				.content(content)//
+				.build();
+  		blogInfoRepository.save(blogInfo);
+		mv.addObject("title", title);
+		mv.addObject("content", content);
+		mv.setViewName("submit");	
+		return mv;
+	}
 }

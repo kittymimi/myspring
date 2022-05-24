@@ -7,6 +7,6 @@ import com.example.demo.BlogInfo;
 
 public interface BlogInfoRepository extends JpaRepository<BlogInfo, Long>{
 	
-	BlogInfo findByUserId(Long userId);
+	BlogInfo findByBlogId(Long blogId);
 
 }
