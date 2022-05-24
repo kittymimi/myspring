@@ -26,7 +26,7 @@ public class Login {
    			@RequestParam("password") String password, //
 			ModelAndView mv) {
 		mv.addObject("username", username);
-		UserInfo userInfo = userInfoRepository.findByUsername(username);	
+		UserInfo userInfo = userInfoRepository.findByName(username);	
 		if (username.equals(userInfo.getUsername()) && password.equals(userInfo.getPassword())) {
 			mv.setViewName("blog");
 		} else {
