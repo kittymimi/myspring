@@ -16,11 +16,6 @@
     margin-left:180px;
 	margin-top:15px;
   }
-  h2{
-  	font-size:30px;
-    margin-top:20px;
-	margin-bottom:20px;
-  }
   div.a{
     background-color:#DFDFDF;
     padding-left:150px;
@@ -33,18 +28,26 @@
   }
   form{
     width:600px;
-	height:600px;
+	max-height:100%;
+	border-radius: 35px;
     margin-top:20px;
     margin-left:180px;
 	margin-bottom:20px;
-	background-color:#eeeeee;
-	padding:10px 30px 10px 30px;
+	background-color:#EEEEEE;
+	padding:40px 40px 40px 40px;
   } 
+  input.form-control{
+	font-size: 16px;
+	border-radius: 10px;
+  }
+  textarea.form-control{
+	border-radius: 10px;    
+  }
   button.btn{
-    width:120px;
-	height:60px;
-	background-color:#ADD8E6;
-  } 
+	font-size: 21px;
+	margin-top: 10px;
+	border-radius: 10px;
+  }
   </style>
   </head>
   <body>
@@ -52,15 +55,10 @@
       <h1>ブログの編集</h1>
     </header>
     <div class="a">
-		<a href="/blog">ホーム</a>
-		<a href="/profile">プロフィール</a>
-		<a href="/blog">観光</a>
-		<a href="/blog">写真</a>
-		<a href="/feel">旅行の感じ</a>
+		<a href="/home">ホーム</a>
 		<a href="/editor">編集</a>
     </div>
 	<form action="/editor" method="post">
-	<h2 class="profile">編集</h2>
 	<div class="mb-3">
     <label for="username" class="form-label">用户名</label>
     <input type="text" class="form-control" id="username" name="username">
@@ -73,9 +71,7 @@
     <label for="content" class="form-label">内容简介</label>
 	<textarea rows="15" cols="92" class="form-control" id="content" name="content"></textarea>
     </div>
-    <input type="submit" id="submit" value="提交">
-	<input type="submit" id="update" class="form-label" th:href="@{/editor(username=${username})}" value="更新">
-	</form>
+    <button type="submit" class="btn btn-primary">提交</button>
     </form>
   <body>
 </html>

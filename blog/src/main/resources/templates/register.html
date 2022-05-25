@@ -11,17 +11,37 @@
     body{
 	  color:#0066CC;
 	  font-size:18px;
-      background-image:url("../image/register.jpeg");
+      background-image:url("C:/Users/Chinasoft/Desktop/java/spring/register.jpeg");
     }
     form{
 	  width:360px;
-	  height:390px;
-	  background-color: #eeeeee;
+	  max-height:100%;
+	  background-color: #EEEEEE;
+	  border-radius: 35px;
 	  margin: 120px auto;
 	  padding:30px 20px 20px 30px;
 	}
+	form:hover{ 
+      background:linear-gradient(to bottom right,#CCDDFF,#77DDFF);
+	}
+	h1{
+	  margin-bottom:15px;
+	}
+	input.form-control{
+	  font-size: 16px;
+	  border-radius: 10px;
+	}
+	input.form-control:hover{ 
+      background-color:	#77DDFF;
+	}
 	button.btn{
 	  font-size:13px;
+	  margin-top: 8px;
+	  margin-bottom: 14px;
+	  border-radius: 9px;
+	}
+	p{
+	  font-size:15px;
 	}
   </style>
 </head>
@@ -33,12 +53,12 @@
     <input type="text" class="form-control" id="username" name="username" placeholder="Username">
   </div>
   <div class="mb-3">
-    <label for="password" class="form-label">Password</label>
-    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+    <label for="password1" class="form-label">Password</label>
+    <input type="password" class="form-control" id="password1" name="password1" placeholder="Password">
   </div>
   <div class="mb-3">
-    <label for="passwordAgain" class="form-label">Repeat Password</label>
-    <input type="password" class="form-control" id="passwordAgain" name="passwordAgain" placeholder="Repeat Password">
+    <label for="password2" class="form-label">Repeat Password</label>
+    <input type="password" class="form-control" id="password2" name="password2" placeholder="Repeat Password">
   </div>
   <button type="submit" class="btn btn-primary">Register</button>
   <p>Already have an account?<a href="/login">Sign In</a></p> 

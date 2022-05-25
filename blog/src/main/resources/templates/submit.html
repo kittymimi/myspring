@@ -16,11 +16,6 @@
     margin-left:180px;
 	margin-top:15px;
   }
-  h2{
-  	font-size:30px;
-    margin-top:20px;
-	margin-bottom:20px;
-  }
   div.a{
     background-color:#DFDFDF;
     padding-left:150px;
@@ -33,32 +28,29 @@
   }
   form.form1{
     width:600px;
-	height:600px;
+	max-height:100%;
+	border-radius: 35px;
 	margin-top:20px;
 	margin-left:180px;
 	margin-bottom:20px;
-	background-color:#eeeeee;
-	padding:10px 30px 10px 30px;
+	background-color:#EEEEEE;
+	padding:40px 40px 40px 40px;
   } 
-  input.comment{
-    width:50px;	
-  }
   form.form2{
     margin-left:180px;
 	margin-bottom:20px;
   } 
-  form.form3{
-	width:600px;
-    margin-left:180px;
-	margin-bottom:20px;
-  } 
-  button.btn{
-    width:120px;
-	height:60px;
-	background-color:#ADD8E6;
-  } 
   input{
     width:70px;
+	height:35px;
+	border-radius: 10px;
+  }
+  button.btn{
+    font-size:15px;
+    width:70px;
+	height:35px;
+	border-radius: 10px;
+	margin-top:-5px;
   }
   </style>
   </head>
@@ -68,10 +60,6 @@
     </header>
     <div class="a">
 		<a href="/blog">ホーム</a>
-		<a href="/profile">プロフィール</a>
-		<a href="/blog">観光</a>
-		<a href="/blog">写真</a>
-		<a href="/feel">旅行の感じ</a>
 		<a href="/editor">編集</a>
     </div>
 	<form class="form1">
@@ -91,15 +79,8 @@
     <form action="/delete" method="get" class="form2">
 	<div class="mb-3">
     <input type="text" name="blogId">
-	<input type="submit" id="delete" class="form-label" th:href="@{/editor(blogId=${blogId})}" value="删除">
+	<button type="submit" id="delete" class="btn btn-primary" name="blogId" th:href="@{/editor(blogId=${blogId})}">删除</button>
 	</div>
 	</form>
-	<form action="/comment" method="post" class="form3">
-	<div class="mb-3">
-    <label for="comment" class="form-label">评论</label>
-	<textarea rows="15" cols="52" class="form-control" id="comment" name="comment"></textarea>
-    </div>
-    <input type="submit" class="comment" value="提交">
-    </form>
   <body>
 </html>
