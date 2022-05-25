@@ -44,27 +44,47 @@ public class Blog {
 		return mv;
 	}
   	
-  	@GetMapping("/delete")
+  	@PostMapping("/delete")
 	public ModelAndView delete(//
 			@RequestParam("blogId") Long blogId,//
 			ModelAndView mv) {
-  		BlogInfo blogInfo = blogInfoRepository.findById(blogId).get();
-		blogInfoRepository.delete(blogInfo);
-		mv.addObject("blogs", blogInfoRepository.findAll());
+  		blogInfoRepository.deleteById(blogId);
 		mv.setViewName("editor");		
 		return mv;
 	}
   	
-  	@PostMapping("/comment")
-	public ModelAndView comment(//
-   			@RequestParam("comment") String comment, //
-			ModelAndView mv) {
-  		BlogInfo blogInfo = BlogInfo.builder()//
-				.comment(comment)//
-				.build();
-  		blogInfoRepository.save(blogInfo);
-		mv.addObject("comment", comment);
-		mv.setViewName("submit");
-		return mv;
-  	} 	
+  	@GetMapping("/update")
+	public String getUpdateView() {
+		return "update";
+	}
+  	
+//  	@PostMapping("/update")
+//	public ModelAndView update(//
+//			@RequestParam("blogId") Long blogId,//
+//			@RequestParam("username") String username,//
+//   			@RequestParam("title") String title, //
+//   			@RequestParam("content") String content, //
+//			ModelAndView mv) {
+//  		BlogInfo blogInfo = BlogInfo.builder()//
+//  				.username(username)//
+//  				.title(title)//
+//				.content(content)//
+//				.build();
+//  		blogInfoRepository.save(blogInfo);
+//		mv.setViewName("submit");
+//		return mv;
+//	}
+//  	
+//  	@PostMapping("/comment")
+//	public ModelAndView comment(//
+//			@RequestParam("blogId") Long blogId,//
+//   			@RequestParam("comment") String comment, //
+//			ModelAndView mv) {
+//  		blogInfoRepository.findByBlogId(blogId).setComment(comment);		
+//  		//System.out.print(blogInfo.getComment());
+//  		//System.out.print(comment);
+//  		//System.out.print(mv.addObject("comment", comment));
+//		mv.setViewName("submit");
+//		return mv;
+//  	} 	
 }

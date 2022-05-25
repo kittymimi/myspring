@@ -45,6 +45,21 @@
 	height:35px;
 	border-radius: 10px;
   }
+  form.form3{
+	width:600px;
+	max-height:100%;
+    margin-left:180px;
+	margin-bottom:20px;
+  }
+  form.form4{
+	width:600px;
+	max-height:100%;
+    margin-left:180px;
+	margin-bottom:20px;
+  }
+  textarea.form-control{
+	margin-bottom:20px;
+  }
   button.btn{
     font-size:15px;
     width:70px;
@@ -56,11 +71,11 @@
   </head>
   <body>
     <header>
-      <h1>ブログの編集</h1>
+      <h1>博客编辑</h1>
     </header>
     <div class="a">
-		<a href="/blog">ホーム</a>
-		<a href="/editor">編集</a>
+		<a href="/blog">博客主页</a>
+		<a href="/editor">博客编辑</a>
     </div>
 	<form class="form1">
 	<div class="mb-3">
@@ -76,11 +91,11 @@
     <p th:text="*{content}"></p>
     </div>
     </form>
-    <form action="/delete" method="get" class="form2">
+    <form action="/delete" method="post" class="form2">
 	<div class="mb-3">
     <input type="text" name="blogId">
-	<button type="submit" id="delete" class="btn btn-primary" name="blogId" th:href="@{/editor(blogId=${blogId})}">删除</button>
+	<button type="submit" id="delete" class="btn btn-primary" th:href="@{/editor(blogId=${blogId})}">删除</button>
 	</div>
-	</form>
+    </form>
   <body>
 </html>
