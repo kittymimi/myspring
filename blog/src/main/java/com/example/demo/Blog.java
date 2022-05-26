@@ -52,7 +52,7 @@ public class Blog {
 		blogInfo.setTitle(title);
 		blogInfo.setContent(content);
 		blogInfoRepository.save(blogInfo);
-		mv.setViewName("update_submit");
+		mv.setViewName("submit_update");
 		return mv;
 	}
   	
@@ -61,7 +61,7 @@ public class Blog {
 			@RequestParam("blogId") Long blogId,//
 			ModelAndView mv) {
   		blogInfoRepository.deleteById(blogId);
-		mv.setViewName("editor");		
+		mv.setViewName("submit_delete");		
 		return mv;
 	}
   	
@@ -78,7 +78,7 @@ public class Blog {
   		BlogInfo blogInfo = blogInfoRepository.findByBlogId(blogId);
   		blogInfo.setComment(comment);
   		blogInfoRepository.save(blogInfo);
-		mv.setViewName("comment_submit");
+		mv.setViewName("submit_comment");
 		return mv;
   	} 	
 }
