@@ -7,47 +7,56 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <style>
   body{
+	font-size:20px;
     font-family:"Pacifico";
-    font-size:20px;
 	margin-bottom:60px;
   }
   h1{
     font-size:39px;
-    margin-left:180px;
 	margin-top:15px;
+	margin-left:180px;
   }
   div.a{
     background-color:#DFDFDF;
-    padding-left:150px;
 	padding-top:30px;
+	padding-left:150px;
 	padding-bottom:30px;
 	margin-top:18px;
   }
   a{ 
     padding:0 30px;
   }
+  h2{
+    font-size: 28px;
+	margin-bottom:20px;
+  }
   form{
     width:600px;
 	max-height:100%;
+	background-color:#EEEEEE;
 	border-radius: 35px;
+	padding:40px 40px 40px 40px;
     margin-top:20px;
     margin-left:180px;
 	margin-bottom:20px;
-	background-color:#EEEEEE;
-	padding:40px 40px 40px 40px;
   } 
   input.form-control{
-	font-size: 20px;
+	font-size: 16px;
+	border-radius: 10px;
+  }
+  input.blogId{
+    width:70px;
+	height:35px;
 	border-radius: 10px;
   }
   textarea.form-control{
-	font-size: 20px;
+    font-size: 16px;
 	border-radius: 10px;    
   }
   button.btn{
 	font-size: 21px;
-	margin-top: 10px;
 	border-radius: 10px;
+	margin-top: 10px;
   }
   </style>
   </head>
@@ -56,23 +65,50 @@
       <h1>博客编辑</h1>
     </header>
     <div class="a">
-		<a href="/home">博客主页</a>
 		<a href="/editor">博客编辑</a>
+		<a href="/comment">博客评论</a>
     </div>
-	<form action="/editor" method="post" class="form1">
+	<form action="/editor" method="post">
+	<h2><strong>添加博客</strong></h2>
 	<div class="mb-3">
     <label for="username" class="form-label">用户名</label>
     <input type="text" class="form-control" id="username" name="username">
     </div>
 	<div class="mb-3">
     <label for="title" class="form-label">标题</label>
-    <input type="text" class="form-control" id="title" name="title">
+	<textarea rows="2" cols="92" class="form-control" id="title" name="title"></textarea>
+    </div>
+	<div class="mb-3">
+    <label for="content" class="form-label">内容简介</label>
+	<textarea rows="15" cols="92" class="form-control" id="content" name="content"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">提交</button>
+    </form>
+    <form action="/update" method="post" class="form3">
+	<h2><strong>更新博客</strong></h2>
+	<div class="mb-3">
+    输入更新博客编号：<input type="text" name="blogId" class="blogId">
+	</div>
+	<div class="mb-3">
+    <label for="username" class="form-label">用户名</label>
+    <input type="text" class="form-control" id="username" name="username">
+    </div>
+	<div class="mb-3">
+    <label for="title" class="form-label">标题</label>
+    <textarea rows="2" cols="92" class="form-control" id="title" name="title"></textarea>
     </div>
 	<div class="mb-3">
     <label for="content" class="form-label">内容简介</label>
 	<textarea rows="10" cols="92" class="form-control" id="content" name="content"></textarea>
     </div>
-    <button type="submit" class="btn btn-primary">提交</button>
+    <button type="submit" id="update" class="btn btn-primary" th:href="@{/editor(blogId=${blogId})}">更新</button>
+    </form>
+	<form action="/delete" method="post" class="form2">
+	<h2><strong>删除博客</strong></h2>
+	<div class="mb-3">
+    输入删除博客编号：<input type="text" name="blogId" class="blogId">
+	</div>
+	<button type="submit" id="delete" class="btn btn-primary" th:href="@{/editor(blogId=${blogId})}">删除</button>
     </form>
   <body>
 </html>

@@ -13,37 +13,47 @@
   }
   h1{
     font-size:39px;
+    margin-left:180px;
 	margin-top:15px;
-	margin-left:180px;
   }
   div.a{
     background-color:#DFDFDF;
-    padding-left:150px;
 	padding-top:30px;
+	padding-left:150px;
 	padding-bottom:30px;
 	margin-top:18px;
   }
   a{ 
     padding:0 30px;
   }
-  form{
-    width:600px;
-	max-height:100%;
-	background-color:#EEEEEE;
-	border-radius: 35px;
-	padding:40px 40px 40px 40px;
-	margin-top:20px;
-	margin-left:180px;
+  h2{
+    font-size: 28px;
 	margin-bottom:20px;
-  } 
+  }
+  input.blogId{
+    width:70px;
+	height:35px;
+	border-radius: 10px;
+  }
   input.form-control{
     width:70px;
 	height:35px;
 	border-radius: 10px;
   }
-  textarea.form-control{
+  form{
+	width:600px;
+	max-height:100%;
+	background-color:#EEEEEE;
+	border-radius: 35px;
+	padding:40px 40px 40px 40px;
+	margin-top:20px;
+    margin-left:180px;
 	margin-bottom:20px;
-	border-radius: 10px;
+  }
+  textarea.form-control{
+    font-size: 16px;
+    border-radius: 10px;
+	margin-bottom:20px;
   }
   button.btn{
     font-size:15px;
@@ -56,25 +66,23 @@
   </head>
   <body>
     <header>
-      <h1>博客编辑</h1>
+      <h1>博客评论</h1>
     </header>
     <div class="a">
 		<a href="/editor">博客编辑</a>
 		<a href="/comment">博客评论</a>
     </div>
-	<form>
+	<form action="/comment" method="post">
+	<h2><strong>评论博客</strong></h2>
 	<div class="mb-3">
-    <label for="username" class="form-label">用户名</label>
-    <p th:text="*{username}"></p>
+    输入评论博客编号：<input type="text" name="blogId" class="blogId">
+	</div>
+    <div class="mb-3">
+    <label for="comment" class="form-label">评论内容</label>
+	<textarea rows="10" cols="62" class="form-control" id="comment" name="comment"></textarea>
     </div>
-	<div class="mb-3">
-    <label for="title" class="form-label">标题</label>
-    <p th:text="*{title}"></p>
-    </div>
-	<div class="mb-3">
-    <label for="content" class="form-label">内容简介</label>
-    <p th:text="*{content}"></p>
-    </div>
+	<button type="submit" id="comment" class="btn btn-primary" th:href="@{/editor(blogId=${blogId})}">提交</button>
+	</div>
     </form>
   <body>
 </html>

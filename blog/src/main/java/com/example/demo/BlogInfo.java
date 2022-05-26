@@ -17,7 +17,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BlogInfo {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long blogId;

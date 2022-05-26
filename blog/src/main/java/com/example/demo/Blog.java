@@ -1,8 +1,5 @@
 package com.example.demo;
 
-
-import java.util.List;
-import java.util.Map; 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import com.example.demo.BlogInfo;
 import com.example.demo.UserInfo;
-
 
 @Controller
 public class Blog {
@@ -44,6 +40,22 @@ public class Blog {
 		return mv;
 	}
   	
+  	@PostMapping("/update")
+	public ModelAndView update(//
+			@RequestParam("blogId") Long blogId,//
+			@RequestParam("username") String username,//
+   			@RequestParam("title") String title, //
+   			@RequestParam("content") String content, //
+			ModelAndView mv) {
+  		BlogInfo blogInfo = blogInfoRepository.findByBlogId(blogId);
+  		blogInfo.setUsername(username);
+		blogInfo.setTitle(title);
+		blogInfo.setContent(content);
+		blogInfoRepository.save(blogInfo);
+		mv.setViewName("update_submit");
+		return mv;
+	}
+  	
   	@PostMapping("/delete")
 	public ModelAndView delete(//
 			@RequestParam("blogId") Long blogId,//
@@ -53,38 +65,20 @@ public class Blog {
 		return mv;
 	}
   	
-  	@GetMapping("/update")
+	@GetMapping("/comment")
 	public String getUpdateView() {
-		return "update";
+		return "comment";
 	}
   	
-//  	@PostMapping("/update")
-//	public ModelAndView update(//
-//			@RequestParam("blogId") Long blogId,//
-//			@RequestParam("username") String username,//
-//   			@RequestParam("title") String title, //
-//   			@RequestParam("content") String content, //
-//			ModelAndView mv) {
-//  		BlogInfo blogInfo = BlogInfo.builder()//
-//  				.username(username)//
-//  				.title(title)//
-//				.content(content)//
-//				.build();
-//  		blogInfoRepository.save(blogInfo);
-//		mv.setViewName("submit");
-//		return mv;
-//	}
-//  	
-//  	@PostMapping("/comment")
-//	public ModelAndView comment(//
-//			@RequestParam("blogId") Long blogId,//
-//   			@RequestParam("comment") String comment, //
-//			ModelAndView mv) {
-//  		blogInfoRepository.findByBlogId(blogId).setComment(comment);		
-//  		//System.out.print(blogInfo.getComment());
-//  		//System.out.print(comment);
-//  		//System.out.print(mv.addObject("comment", comment));
-//		mv.setViewName("submit");
-//		return mv;
-//  	} 	
+  	@PostMapping("/comment")
+	public ModelAndView comment(//
+			@RequestParam("blogId") Long blogId,//
+   			@RequestParam("comment") String comment, //
+			ModelAndView mv) {
+  		BlogInfo blogInfo = blogInfoRepository.findByBlogId(blogId);
+  		blogInfo.setComment(comment);
+  		blogInfoRepository.save(blogInfo);
+		mv.setViewName("comment_submit");
+		return mv;
+  	} 	
 }

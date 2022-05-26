@@ -28,15 +28,15 @@ public class Login {
 		mv.addObject("username", username);
 		UserInfo userInfo = userInfoRepository.findByUsername(username);	
 		if (username.equals(userInfo.getUsername()) && password.equals(userInfo.getPassword())) {
-			mv.setViewName("blog");
+			mv.setViewName("editor");
 		} else {
-			mv.setViewName("fail");
+			mv.setViewName("fail_login");
 		}
 		return mv;
 	}
 	
-	@GetMapping("/blog")
-	public String getSuccessView() {
-		return "blog";
-	}
+//	@GetMapping("/editor")
+//	public String getSuccessView() {
+//		return "editor";
+//	}
 }
