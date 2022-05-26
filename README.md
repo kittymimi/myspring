@@ -6,13 +6,9 @@ register.html
 
 blog.html
 
-profile.html
+editor.html
 
-feel.html
-
-blog_edit.html
-
-blog_edit_submit.html
+submit.html
 
 fail_register.html
 
