@@ -35,8 +35,4 @@ public class Login {
 		return mv;
 	}
 	
-//	@GetMapping("/editor")
-//	public String getSuccessView() {
-//		return "editor";
-//	}
 }
